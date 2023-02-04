@@ -1,10 +1,8 @@
 void main() {
-  var name;
-  // dynamic name;
-  name = 'nico';
-  name = 12;
-  name = true;
-
-  if (name is String) {}
-  if (name is int) {}
+  String? name = 'hannah';
+  name = null;
+  if (name != null) {
+    print(name.length);
+  }
+  print(name?.length);
 }
