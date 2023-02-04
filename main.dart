@@ -1,6 +1,10 @@
 void main() {
-  var name1 = 'hannah';
-  name1 = '해나';
-  String name2 = 'hannah';
-  name2 = '해나';
+  var name;
+  // dynamic name;
+  name = 'nico';
+  name = 12;
+  name = true;
+
+  if (name is String) {}
+  if (name is int) {}
 }
