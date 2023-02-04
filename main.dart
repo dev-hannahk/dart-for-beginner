@@ -1,8 +1,7 @@
 void main() {
-  String? name = 'hannah';
-  name = null;
-  if (name != null) {
-    print(name.length);
-  }
-  print(name?.length);
+  final name = 'hannah';
+  name = '해나';
+  // throw error
+  // The final variable 'name' can only be set once.
+  // Try making 'name' non-final.
 }
