@@ -1,4 +1,11 @@
 void main() {
-  // const는 컴파일 타임에 알고 있는 값이어야 한다
-  const API = 'http://localhost:8080/';
+  String name = 'hananh';
+  bool alive = true;
+  int age = 20;
+  // abstract class int extends num
+  double money = 12.11;
+  // abstract class double extends num
+  // num으로 부터 파생된 타입
+  num x = 12;
+  x = 1.1;
 }
