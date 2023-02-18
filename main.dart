@@ -1,20 +1,25 @@
 class Player {
-  final String name = 'hannah';
-  int xp = 1000;
+  // late String name;
+  // late int xp;
+
+  final String name;
+  int xp;
+
+  // Player(String name, int xp) {
+  //   this.name = name;
+  //   this.xp = xp;
+  // }
+
+  Player(this.name, this.xp);
 
   void sayHello() {
-    var name = 'fake';
-    // not recommended 'this' inside of the class method
-    // unless access the variable if the same variables exists inside of method
-    print("Hi, I'm ${this.name}."); // Hi, I'm hannah.
-    print("Hi, I'm $name."); // Hi, I'm fake.
+    print("Hi, I'm $name.");
   }
 }
 
 void main() {
-  var player = Player();
-  print(player.name);
-  // player.name = 'haley'; // 'name' can't be used as a setter because it's final.
-  print(player.xp);
-  player.sayHello();
+  var player1 = Player('hannah', 10000);
+  player1.sayHello();
+  var player2 = Player('haley', 20000);
+  player2.sayHello();
 }
