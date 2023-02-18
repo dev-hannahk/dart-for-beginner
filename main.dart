@@ -1,16 +1,14 @@
-// typedef allows to create alias for the types.
-typedef ListOfInts = List<int>;
+typedef UserInfo = Map<String, String>;
 
-// List<int> reverseListOfNumbers(List<int> list) {
-//   var reversed = list.reversed;
-//   return reversed.toList();
+// String sayHi(Map<String, String> userInfo) {
+//   return 'Hi, ${userInfo['name']}';
 // }
 
-ListOfInts reverseListOfNumbers(List<int> list) {
-  var reversed = list.reversed;
-  return reversed.toList();
+String sayHi(UserInfo userInfo) {
+  return 'Hi, ${userInfo['name']}!';
 }
 
 void main() {
-  print(reverseListOfNumbers([1, 2, 3])); // [3, 2, 1]
+  var result = sayHi({'name': 'Hannah'});
+  print(result);
 }
