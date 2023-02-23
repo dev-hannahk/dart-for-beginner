@@ -1,12 +1,9 @@
 class Player {
-  final String name;
+  String name;
   int xp;
   String team;
 
-  Player.fromJson(Map<String, dynamic> playerJson)
-      : name = playerJson['name'],
-        xp = playerJson['xp'],
-        team = playerJson['team'];
+  Player({required this.name, required this.xp, required this.team});
 
   void sayHello() {
     print("Hi, I'm $name. My team is $team and my xp is $xp.");
@@ -14,17 +11,19 @@ class Player {
 }
 
 void main() {
-  var apiData = [
-    {"name": "hannah", "team": "Red", "xp": 0},
-    {"name": "haley", "team": "Blue", "xp": 10},
-    {"name": "harry", "team": "Green", "xp": 20},
-  ];
+  // Cascade Notation;
+  // It allows you to make a sequence of operations on the same object.
+  //  In addition to accessing instance members, you can also call instance methods on that same object.
+  // This often saves you the step of creating a temporary variable and allows you to write more fluid code.
 
-  apiData.forEach((playerJson) {
-    var player = Player.fromJson(playerJson);
-    player.sayHello();
-    // Hi, I'm hannah. My team is Red and my xp is 0.
-    // Hi, I'm haley. My team is Blue and my xp is 10.
-    // Hi, I'm harry. My team is Green and my xp is 20.
-  });
+  // var hannah = Player(name: 'hannah', xp: 20, team: 'blue');
+  // hannah.name = 'haley';
+  // hannah.xp = 12;
+  // hannah.team = 'red';
+
+  var hannah = Player(name: 'hannah', xp: 20, team: 'blue')
+    ..name = 'haley'
+    ..xp = 12
+    ..team = 'red'
+    ..sayHello();
 }
