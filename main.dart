@@ -1,39 +1,28 @@
-// Abstract Classes
-// 추상화 클래스는 다른 클래스들이 직접 구현해야하는 메소드들을 모아놓은 일종의 청사진이다
-abstract class Human {
-  void walk();
+class Human {
+  final String name;
+  Human(this.name);
+  void sayHello() {
+    print('Hi my name is $name');
+  }
 }
 
 enum Team { blue, red }
 
-enum XPLevel { beginner, pro, intermediate }
-
-class Coach extends Human {
-  void walk() {
-    print("The coach is walking");
-  }
-}
-
 class Player extends Human {
-  String name;
-  XPLevel xp;
-  Team team;
+  final Team team;
 
-  Player({required this.name, required this.xp, required this.team});
+  // super라는 키워드를 통해 부모 클래스와 상호작용할 수 있도록 한다
+  Player({required this.team, required String name}) : super(name);
 
+  @override
   void sayHello() {
-    print("Hi, I'm $name. My team is $team and my xp is $xp.");
-  }
-
-  void walk() {
-    print('$name is walking.');
+    // TODO: implement sayHello
+    super.sayHello();
+    print('and I play for ${team.name}');
   }
 }
 
 void main() {
-  var hannah = Player(name: 'hannah', xp: XPLevel.beginner, team: Team.blue)
-    ..name = 'haley'
-    ..xp = XPLevel.pro
-    ..team = Team.red
-    ..sayHello();
+  var player = Player(team: Team.blue, name: 'hannah');
+  player.sayHello();
 }
