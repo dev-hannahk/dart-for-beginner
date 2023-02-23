@@ -1,6 +1,6 @@
 class Human {
   final String name;
-  Human(this.name);
+  Human({required this.name});
   void sayHello() {
     print('Hi my name is $name');
   }
@@ -12,7 +12,8 @@ class Player extends Human {
   final Team team;
 
   // super라는 키워드를 통해 부모 클래스와 상호작용할 수 있도록 한다
-  Player({required this.team, required String name}) : super(name);
+  //Player({required this.team, required String name}) : super(name);
+  Player({required this.team, required super.name});
 
   @override
   void sayHello() {
