@@ -1,29 +1,33 @@
-class Human {
-  final String name;
-  Human({required this.name});
-  void sayHello() {
-    print('Hi my name is $name');
-  }
-}
+// mixin 생성자가 없는 클래스
+// 상속할 때 with를 사용한다
+// 여러 클래스 재사용이 가능하다
 
 enum Team { blue, red }
 
-class Player extends Human {
-  final Team team;
+class Strong {
+  final double strengthLevel = 15.6;
+}
 
-  // super라는 키워드를 통해 부모 클래스와 상호작용할 수 있도록 한다
-  //Player({required this.team, required String name}) : super(name);
-  Player({required this.team, required super.name});
-
-  @override
-  void sayHello() {
-    // TODO: implement sayHello
-    super.sayHello();
-    print('and I play for ${team.name}');
+class QuickRunner {
+  void runQuick() {
+    print('runnnnnn');
   }
 }
 
+class Tall {
+  final double height = 180.5;
+}
+
+class Player with Strong, QuickRunner, Tall {
+  final Team team;
+  Player({required this.team});
+}
+
+class Horse with Strong, Tall {}
+
+class Kid with QuickRunner {}
+
 void main() {
-  var player = Player(team: Team.blue, name: 'hannah');
-  player.sayHello();
+  var player = Player(team: Team.blue);
+  player.runQuick();
 }
